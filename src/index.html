@@ -7,36 +7,48 @@
     <link rel="stylesheet" href="styles/journal.css">
 </head>
 <body>
+    <header>
+        <h1 class="title">Daily Journal</h1>
+    </header>
+    
+    <main class="container">
+        
+        <h2 class="container__title">New Entry</h2>
 
-    <h1>Daily Journal</h1>
+        <form action="" class="new-entry">
+           
+            <fieldset>
+                <label for="journalDate">Date of Journal Entry</label>
+                <input type="date" name="journalDate" id="journalDate">
+            </fieldset>
+            
+            <fieldset>
+                <label for="journalConcepts">Concepts Covered</label>
+                <input type="text" name="journalConcepts" id="journalConcepts">
+            </fieldset>
+            
+            <fieldset>
+                <label for="journalEntry">Journal Entry</label>
+                <textarea name="journalEntry" id="journalEntry"></textarea>
+            </fieldset>
+           
+            <fieldset>
+                <label for="journalMood">Today's Mood</label>
+                <select name="journalMood" id="journalMood">
+                    <option value="happy">Happy &#x1f60A</option>
+                    <option value="sad">Sad &#x1f625</option>
+                    <option value="tired">Tired &#x1f971</option>
+                    <option value="celebratory">Celebratory &#x1f973</option>
+                    <option value="confused">Confused &#x1f615</option>"
+                    <option value="learned">Learned &#x1f393</option>
+                    <option value="burn">Burn it to the ground! &#x1f525</option>
+                </select>
+            </fieldset>
+            
+            <button type="submit" class="button">Record Journal Entry</button>
+        </form>
 
-    <form action="" class="new-entry">
-        <fieldset>
-            <label for="journalDate">Date of Journal Entry</label>
-            <input type="date" name="journalDate" id="journalDate">
-        </fieldset>
-        <fieldset>
-            <label for="journalConcepts">Concepts Covered</label>
-            <input type="text" name="journalConcepts" id="journalConcepts">
-        </fieldset>
-        <fieldset>
-            <label for="journalEntry">Journal Entry</label>
-            <textarea name="journalEntry" id="journalEntry"></textarea>
-        </fieldset>
-        <fieldset>
-            <label for="journalMood">Today's Mood</label>
-            <select name="journalMood" id="journalMood">
-                <option value="happy">Happy &#x1f60A</option>
-                <option value="sad">Sad &#x1f625</option>
-                <option value="tired">Tired &#x1f971</option>
-                <option value="celebratory">Celebratory &#x1f973</option>
-                <option value="confused">Confused &#x1f615</option>"
-                <option value="learned">Learned &#x1f393</option>
-                <option value="burn">Burn it to the ground! &#x1f525</option>
-            </select>
-        </fieldset>
-        <button type="submit">Record Journal Entry</button>
-    </form>
+    </main>
 
     <script src="scripts/journal.js"></script>
 
