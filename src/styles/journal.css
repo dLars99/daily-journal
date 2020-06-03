@@ -1,4 +1,80 @@
+body {
+    background-color: rgb(255, 255, 232);
+}
+
 fieldset {
     display: flex;
     flex-direction: column;
 }
+
+label {
+    font-size: .8rem;
+}
+
+.title {
+    text-align: center;
+    font-family: "American Typewriter", monospace;
+}
+
+.container {
+    width: 60%;
+    margin: 3rem auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container__title {
+    margin: 0 1.5rem .3rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.new-entry {
+    border: 1.8px none tan;
+    border-radius: 10px;
+    padding: .4rem .6rem;
+    background-color: rgba(245, 237, 191, 0.7);
+}
+
+fieldset {
+    border: 1px none;
+    border-bottom: 1px solid tan;
+    margin: .6rem 0;
+}
+
+.button {
+    margin: .3rem .8rem;
+    border-radius: 7px;
+    border: 2px solid rgb(233, 196, 148);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: .4rem;
+    background-color: rgba(250, 215, 135, 0.5);
+}
+
+#journalDate {
+    border-radius: 5px;
+    border: 1px solid tan;
+    background-color: rgb(255, 255, 232);
+}
+
+#journalConcepts {
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid tan;
+    background-color: rgb(255, 255, 232);
+}
+
+#journalEntry {
+    border-radius: 5px;
+    border: 1px solid tan;
+    width: 100%;
+    height: 5rem;
+    background-color: rgb(255, 255, 232);
+}
+
+#journalMood {
+    border-radius: 5px;
+    border: 1px solid tan;
+    height: 1.8rem;
+    background-color: rgb(255, 255, 232);
+}
+
