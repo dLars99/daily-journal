@@ -3,4 +3,4 @@
     defined in the other JavaScript files
 */
 
-API.getJournalEntries().then(entryArray => renderJournalEntries(entryArray))
+API.getJournalEntries().then(entryArray => journalList.renderJournalEntries(entryArray))
