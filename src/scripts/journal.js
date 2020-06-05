@@ -1,26 +1,21 @@
-// Array of journal entries
-const journalEntries = [
-    {
-        date: "2020-05-22",
-        concepts: "GitHub one-way street, Flexbox, Linux and Bash",
-        entry: "So far, so good! Stay on target."
-        mood: "Happy" 
-    },
-    {
-        date: "2020-05-29",
-        concepts: "Group coding, JS Linking to HTML, JS Objects",
-        entry: "First group project was a success, though next time I want to spend more time on design before writing any code."
-        mood: "Tired" 
-    }
-];
 
-/*
-    Purpose: To create, and return, a string template that
-    represents a single journal entry object as HTML
-
-    Arguments: journalEntry (object)
+/* Retrieve the journal entries from the JSON database,
+    convert the array, and send to the render function
 */
 
+const getJournalEntries = () => {
+    return fetch("http://localhost:8088/entries").then(
+        (response) => {
+            return response.json()
+        }
+    ).then(
+        (arrayOfEntries) => {
+            renderJournalEntries(arrayOfEntries)
+        }
+    )
+}
+
+// Convert the current entry object to HTML
 const makeJournalEntryComponent = (journalEntry) => {
     journalEntryHTML = `<section class="journalEntry">
         <div class = "log__date"><h4>Date:</h4> ${journalEntry.date}</div>
@@ -49,5 +44,5 @@ const renderJournalEntries = (entries) => {
     }
 }
 
-// Invoke the reader function
-renderJournalEntries(journalEntries)
+// Invoke journal entry retrieval
+getJournalEntries()
