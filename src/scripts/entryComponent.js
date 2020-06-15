@@ -10,3 +10,5 @@ const journalHTML = {
                     </section>`
     }
 }
+
+export default journalHTML

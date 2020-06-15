@@ -1,3 +1,5 @@
+import journalHTML from "./entryComponent.js"
+
 /*
     Purpose: To render all journal entries to the DOM
 
@@ -6,11 +8,12 @@
 
 const journalList = {
     renderJournalEntries (entries) {
-                // const insertionPoint = document.querySelector(".entryLog")
 
-                for (entry of entries) {
-                    entryHTML = journalHTML.makeJournalEntryComponent(entry)
+                for (const entry of entries) {
+                    const entryHTML = journalHTML.makeJournalEntryComponent(entry)
                     document.querySelector(".entryLog").innerHTML += entryHTML
                 }
     }
 }
+
+export default journalList
