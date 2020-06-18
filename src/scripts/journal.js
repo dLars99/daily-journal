@@ -20,6 +20,8 @@ document.querySelector(".button").addEventListener("click", clickEvent => {
     } else {
         const newJournalObject = createEntryObject(submittedDate, submittedConcepts, submittedEntry, submittedMood)
         API.saveJournalEntry(newJournalObject)
-            .then(newEntryResponse => journalList.renderJournalEntries(newEntryResponse))
+            .then(() => {
+                API.getJournalEntries()})
+                .then(entryArray => journalList.renderJournalEntries(entryArray))
     }
 })

@@ -20,6 +20,13 @@
       "entry": "Test",
       "mood": "Burn it to the ground! 🔥",
       "id": 3
+    },
+    {
+      "date": "2020-06-19",
+      "concepts": "Test",
+      "entry": "Test",
+      "mood": "Burn it to the ground! 🔥",
+      "id": 4
     }
   ]
 }

@@ -10,14 +10,13 @@ const API = {
     },
 
     saveJournalEntry(entryObject) {
-        fetch("http://localhost:8088/entries", {
+        return fetch("http://localhost:8088/entries", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(entryObject)
-        })
-        .then(response => response.json())
+        }).then(response => response.json())
     }
 }
 
