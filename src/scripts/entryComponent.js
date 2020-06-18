@@ -1,4 +1,4 @@
-// Convert the current entry object to HTML
+// Convert the current entry object to HTML for display
 
 const journalHTML = {
     makeJournalEntryComponent (journalEntry) {
