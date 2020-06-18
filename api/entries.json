@@ -1,18 +1,32 @@
 {
-    "entries": [
-        {
-        "id": 1,
-        "date": "May 22 2020",
-        "concepts": "GitHub one-way street, Flexbox, Linux and Bash",
-        "entry": "So far, so good! Stay on target.",
-        "mood": "Happy &#x1f60A"
-        },
-        {
-        "id": 2,
-        "date": "May 29 2020",
-        "concepts": "Group coding, JS Linking to HTML, JS Objects",
-        "entry": "First group project was a success, though next time I want to spend more time on design before writing any code.",
-        "mood": "Tired &#x1f971"
-        }
-    ]
+  "entries": [
+    {
+      "id": 1,
+      "date": "May 22 2020",
+      "concepts": "GitHub one-way street, Flexbox, Linux and Bash",
+      "entry": "So far, so good! Stay on target.",
+      "mood": "Happy &#x1f60A"
+    },
+    {
+      "id": 2,
+      "date": "May 29 2020",
+      "concepts": "Group coding, JS Linking to HTML, JS Objects",
+      "entry": "First group project was a success, though next time I want to spend more time on design before writing any code.",
+      "mood": "Tired &#x1f971"
+    },
+    {
+      "date": "2020-06-18",
+      "concepts": "Test",
+      "entry": "Test",
+      "mood": "Burn it to the ground! 🔥",
+      "id": 3
+    },
+    {
+      "date": "2020-06-19",
+      "concepts": "Test",
+      "entry": "Test",
+      "mood": "Burn it to the ground! 🔥",
+      "id": 4
+    }
+  ]
 }
