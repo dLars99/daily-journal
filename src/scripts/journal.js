@@ -6,6 +6,7 @@
 import API from "./data.js"
 import journalList from "./entryList.js"
 import createEntryObject from "./createEntry.js"
+import validateData from "./validation.js"
 
 API.getJournalEntries().then(entryArray => journalList.renderJournalEntries(entryArray))
 
@@ -15,13 +16,14 @@ document.querySelector(".button").addEventListener("click", clickEvent => {
     const submittedEntry = document.querySelector("#journalEntry").value
     const submittedMood = document.querySelector("#journalMood").value
 
-    if (submittedDate === "" || submittedConcepts === "" || submittedEntry === "" || submittedMood === "") {
-        window.alert("All fields must be completed")
-    } else {
+    // Validate data. Save to JSON database if validation passes
+    if (validateData(submittedDate, submittedConcepts, submittedEntry, submittedMood)) {
         const newJournalObject = createEntryObject(submittedDate, submittedConcepts, submittedEntry, submittedMood)
         API.saveJournalEntry(newJournalObject)
-            .then(() => {
-                API.getJournalEntries()})
-                .then(entryArray => journalList.renderJournalEntries(entryArray))
+            .then(() => API.getJournalEntries())
+            .then((entryArray) => {
+                document.querySelector(".entryLog").innerHTML = ""
+                journalList.renderJournalEntries(entryArray)
+            })
     }
 })
