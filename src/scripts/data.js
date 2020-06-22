@@ -10,12 +10,13 @@ const API = {
     },
 
     saveJournalEntry(entryObject) {
+        const objectToSend = JSON.stringify(entryObject)
         return fetch("http://localhost:8088/entries", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(entryObject)
+            body: objectToSend
         }).then(response => response.json())
     }
 }
