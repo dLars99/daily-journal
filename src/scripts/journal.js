@@ -13,7 +13,7 @@ import editFormFields from "./editEntry.js"
 API.getJournalEntries().then(entryArray => journalList.renderJournalEntries(entryArray))
 
 document.querySelector(".button").addEventListener("click", clickEvent => {
-    const submittedID = document.querySelector("#journalID").value
+    let submittedID = document.querySelector("#journalID").value
     const submittedDate = document.querySelector("#journalDate").value
     const submittedConcepts = document.querySelector("#journalConcepts").value
     const submittedEntry = document.querySelector("#journalEntry").value
@@ -25,21 +25,33 @@ document.querySelector(".button").addEventListener("click", clickEvent => {
 
         // Check if entry is new or edited
         if (submittedID === "") {
+
             // New entry
             API.saveJournalEntry(newJournalObject)
                 .then(() => API.getJournalEntries())
-                .then((entryArray) => {
-                    journalList.renderJournalEntries(entryArray)
+                .then((entryArray) => journalList.renderJournalEntries(entryArray))
+                .then(() => {
+                    // Clear form
+                    submittedID = ""
+                    document.getElementById("new-entry").reset()
                 }
             )
+
         } else {
+
             // Edited entry
             API.editJournalEntry(newJournalObject, submittedID)
                 .then(() => API.getJournalEntries())
-                .then((entryArray) => journalList.renderJournalEntries(entryArray)
+                .then((entryArray) => journalList.renderJournalEntries(entryArray))
+                .then(() => {
+                    // Clear form
+                    submittedID = ""
+                    document.getElementById("new-entry").reset()  
+                }
             )
         }
 
+        
     }
 })
 
