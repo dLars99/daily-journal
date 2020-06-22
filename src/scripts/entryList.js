@@ -8,11 +8,11 @@ import journalHTML from "./entryComponent.js"
 
 const journalList = {
     renderJournalEntries (entries) {
-
-                for (const entry of entries) {
-                    const entryHTML = journalHTML.makeJournalEntryComponent(entry)
-                    document.querySelector(".entryLog").innerHTML += entryHTML
-                }
+        document.querySelector(".entryLog").innerHTML = ""
+        for (const entry of entries) {
+            const entryHTML = journalHTML.makeJournalEntryComponent(entry)
+            document.querySelector(".entryLog").innerHTML += entryHTML
+        }
     }
 }
 
