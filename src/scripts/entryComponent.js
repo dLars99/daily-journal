@@ -8,6 +8,7 @@ const journalHTML = {
                     <div class = "log__entry"><h4>Journal Entry:</h4> ${journalEntry.entry}</div>
                     <div class = "log__mood"><h4>Mood:</h4> <p>${journalEntry.mood}</p></div>
                     <button class="button__delete" id="delete--${journalEntry.id}">Delete</button>
+                    <button class="button__edit" id="edit--${journalEntry.id}">Edit</button>
                     </section>`
     }
 }
