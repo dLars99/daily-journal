@@ -8,10 +8,12 @@ import journalList from "./entryList.js"
 import createEntryObject from "./createEntry.js"
 import validateData from "./validation.js"
 import filterEntriesByMood from "./moodFilter.js"
+import editFormFields from "./editEntry.js"
 
 API.getJournalEntries().then(entryArray => journalList.renderJournalEntries(entryArray))
 
 document.querySelector(".button").addEventListener("click", clickEvent => {
+    let submittedID = document.querySelector("#journalID").value
     const submittedDate = document.querySelector("#journalDate").value
     const submittedConcepts = document.querySelector("#journalConcepts").value
     const submittedEntry = document.querySelector("#journalEntry").value
@@ -20,12 +22,36 @@ document.querySelector(".button").addEventListener("click", clickEvent => {
     // Validate data. Save to JSON database if validation passes
     if (validateData(submittedDate, submittedConcepts, submittedEntry, submittedMood)) {
         const newJournalObject = createEntryObject(submittedDate, submittedConcepts, submittedEntry, submittedMood)
-        API.saveJournalEntry(newJournalObject)
-            .then(() => API.getJournalEntries())
-            .then((entryArray) => {
-                journalList.renderJournalEntries(entryArray)
-            }
-        )
+
+        // Check if entry is new or edited
+        if (submittedID === "") {
+
+            // New entry
+            API.saveJournalEntry(newJournalObject)
+                .then(() => API.getJournalEntries())
+                .then((entryArray) => journalList.renderJournalEntries(entryArray))
+                .then(() => {
+                    // Clear form
+                    submittedID = ""
+                    document.getElementById("new-entry").reset()
+                }
+            )
+
+        } else {
+
+            // Edited entry
+            API.editJournalEntry(newJournalObject, submittedID)
+                .then(() => API.getJournalEntries())
+                .then((entryArray) => journalList.renderJournalEntries(entryArray))
+                .then(() => {
+                    // Clear form
+                    submittedID = ""
+                    document.getElementById("new-entry").reset()  
+                }
+            )
+        }
+
+        
     }
 })
 
@@ -44,6 +70,7 @@ filterButtonCollection.forEach(button => {
     })
 })
 
+// Listen to buttons on individual entries and take appropriate action
 document.querySelector(".entryLog").addEventListener("click", event => {
     if (event.target.id.startsWith("delete--")) {
         const entryToDelete = event.target.id.split("--")[1]
@@ -52,4 +79,11 @@ document.querySelector(".entryLog").addEventListener("click", event => {
             .then(() => API.getJournalEntries())
             .then(entryArray => journalList.renderJournalEntries(entryArray))
     }
+
+    if (event.target.id.startsWith("edit--")) {
+        const entryToEdit = event.target.id.split("--")[1]
+
+        editFormFields(entryToEdit)
+    }
 })
+
