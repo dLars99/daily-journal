@@ -43,3 +43,13 @@ filterButtonCollection.forEach(button => {
 
     })
 })
+
+document.querySelector(".entryLog").addEventListener("click", event => {
+    if (event.target.id.startsWith("delete--")) {
+        const entryToDelete = event.target.id.split("--")[1]
+
+        API.deleteJournalEntry(entryToDelete)
+            .then(API.getJournalEntries)
+            .then(entryArray => journalList.renderJournalEntries(entryArray))
+    }
+})

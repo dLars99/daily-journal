@@ -18,6 +18,12 @@ const API = {
             },
             body: objectToSend
         }).then(response => response.json())
+    },
+
+    deleteJournalEntry(id) {
+        return fetch(`http://localhost:8088/entries/${id}`, {
+            method: "DELETE"
+        }).then(response => response.json())
     }
 }
 
