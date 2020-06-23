@@ -67,6 +67,7 @@ const showEntryForm = () => {
                         // Clear form
                         submittedID = ""
                         document.getElementById("new-entry").reset()
+                        document.querySelector(".formGoesHere").innerHTML = ""
                     }
                 )
 
@@ -80,6 +81,7 @@ const showEntryForm = () => {
                         // Clear form
                         submittedID = ""
                         document.getElementById("new-entry").reset()
+                        document.querySelector(".formGoesHere").innerHTML = ""
                     }
                 )
             }
