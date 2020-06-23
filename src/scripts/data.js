@@ -20,6 +20,20 @@ const API = {
         }).then(response => response.json())
     },
 
+    saveAndRefresh(entryObject) {
+        const objectToSend = JSON.stringify(entryObject)
+        return fetch("http://localhost:8088/entries", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: objectToSend
+        }).then(() => {
+            return fetch("http://localhost:8088/entries")
+            .then(response => response.json())
+        })
+    },
+
     editJournalEntry(entryObject, id) {
         return fetch(`http://localhost:8088/entries/${id}`, {
             method: "PUT",
