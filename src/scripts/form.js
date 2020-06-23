@@ -59,9 +59,7 @@ const showEntryForm = () => {
             // Check if entry is new or edited
             if (submittedID === "") {
 
-                // New entry
-                API.saveJournalEntry(newJournalObject)
-                    .then(() => API.getJournalEntries())
+                API.saveAndRefresh(newJournalObject)
                     .then((entryArray) => journalList.renderJournalEntries(entryArray))
                     .then(() => {
                         // Clear form
