@@ -14,27 +14,27 @@
     <main>
         <section class="container">
 
-            <form class="new-entry" id="filterMood">
-                <fieldset>
-                    <legend>Filter Journal Entries by Mood</legend>
-                    <label for="happy">Happy</label>
+            <form class="new-entry">
+                <fieldset class="filterMood">
+                    <legend class="legend__title">Filter Journal Entries by Mood</legend>
+                    <label for="happy" class="moodButtons">Happy</label>
                     <input type="radio" name="filterMood" id="Happy">
-                    <label for="sad">Sad</label>
+                    <label for="sad" class="moodButtons">Sad</label>
                     <input type="radio" name="filterMood" id="Sad">
-                    <label for="tired">Tired</label>
+                    <label for="tired" class="moodButtons">Tired</label>
                     <input type="radio" name="filterMood" id="Tired">
-                    <label for="Celebratory">celebratory</label>
+                    <label for="Celebratory" class="moodButtons">celebratory</label>
                     <input type="radio" name="filterMood" id="Celebratory">
-                    <label for="confused">Confused</label>
+                    <label for="confused" class="moodButtons">Confused</label>
                     <input type="radio" name="filterMood" id="Confused">
-                    <label for="learned">Learned</label>
+                    <label for="learned" class="moodButtons">Learned</label>
                     <input type="radio" name="filterMood" id="Learned">
-                    <label for="burn">Burn It!</label>
+                    <label for="burn" class="moodButtons">Burn It!</label>
                     <input type="radio" name="filterMood" id="Burn">
                 </fieldset>
             </form>
 
-            <button id="newEntryButton">New Entry</button>
+            <button class="button" id="newEntryButton">New Entry</button>
             <section class="formGoesHere">
                 <!-- New entry form will appear here -->
             </section>

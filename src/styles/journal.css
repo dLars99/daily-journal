@@ -5,6 +5,9 @@ body {
 fieldset {
     display: flex;
     flex-direction: column;
+    border: 1px none;
+    border-bottom: 1px solid tan;
+    margin: .6rem 0;
 }
 
 label {
@@ -19,26 +22,29 @@ label {
 .container {
     width: 60%;
     margin: 2.2rem auto;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.container__title {
-    margin: 0 1.5rem .3rem;
-    font-weight: 500;
-    font-size: 1.3rem;
-}
-
-.new-entry {
+    font-family: Arial,
+    Helvetica,
+    sans-serif;
     border: 1.8px none tan;
     border-radius: 10px;
     padding: .4rem .6rem;
     background-color: rgba(245, 237, 191, 0.7);
 }
 
-fieldset {
-    border: 1px none;
-    border-bottom: 1px solid tan;
-    margin: .6rem 0;
+.legend__title {
+    margin: 0 1.5rem .3rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.form__title {
+    border-top: 1px solid tan;
+    margin: 1rem .6rem .3rem;
+    padding: 1rem 0 0;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 .button {
@@ -123,4 +129,8 @@ fieldset {
 
 .log__mood {
     margin: 1.1rem 1rem;
+}
+
+.filterMood {
+    flex-flow: row wrap;
 }

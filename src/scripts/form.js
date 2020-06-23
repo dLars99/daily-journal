@@ -1,13 +1,15 @@
 import createEntryObject from "./createEntry.js"
 import validateData from "./validation.js"
+import API from "./data.js"
+import journalList from "./entryList.js"
 
 // Displays the New Entry form on the DOM, followed by functionality
 // for the form's Save Button
 
 const showEntryForm = () => {
-    document.querySelector(".formGoesHere").innerHTML=`<h2 class="container__title">NewEntry</h2>
+    document.querySelector(".formGoesHere").innerHTML=`<h2 class="form__title">New Entry</h2>
     
-    <form action="" class="new-entry" id="new-entry">
+    <form class="new-entry" id="new-entry">
         <input type="hidden" id="journalID" value="">
         
         <fieldset>
@@ -38,12 +40,12 @@ const showEntryForm = () => {
             </select>
         </fieldset>
 
-        <button class="button" type="button">Record Journal Entry</button>
-        <button class="button" id="cancelEntry">Cancel</button>
+        <button class="button" type="button" id="saveButton">Record Journal Entry</button>
+        <button class="button" type="button" id="cancelEntry">Cancel</button>
     </form>` 
 
     // Save button
-    document.querySelector(".button").addEventListener("click", clickEvent => {
+    document.querySelector("#saveButton").addEventListener("click", clickEvent => {
         let submittedID = document.querySelector("#journalID").value
         const submittedDate = document.querySelector("#journalDate").value
         const submittedConcepts = document.querySelector("#journalConcepts").value
@@ -85,8 +87,8 @@ const showEntryForm = () => {
     })
 
     // Cancel button
-    document.getElementById("cancelButton").addEventListener("click", clickEvent => {
-            document.querySelector(".formGoesHere").innerHTML = ""
+    document.getElementById("cancelEntry").addEventListener("click", clickEvent => {
+        document.querySelector(".formGoesHere").innerHTML = ""
     })
 }
 
