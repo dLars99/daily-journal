@@ -5,54 +5,15 @@
 
 import API from "./data.js"
 import journalList from "./entryList.js"
-import createEntryObject from "./createEntry.js"
-import validateData from "./validation.js"
 import filterEntriesByMood from "./moodFilter.js"
 import editFormFields from "./editEntry.js"
+import showEntryForm from "./form.js"
 
 API.getJournalEntries().then(entryArray => journalList.renderJournalEntries(entryArray))
 
-document.querySelector(".button").addEventListener("click", clickEvent => {
-    let submittedID = document.querySelector("#journalID").value
-    const submittedDate = document.querySelector("#journalDate").value
-    const submittedConcepts = document.querySelector("#journalConcepts").value
-    const submittedEntry = document.querySelector("#journalEntry").value
-    const submittedMood = document.querySelector("#journalMood").value
-
-    // Validate data. Save to JSON database if validation passes
-    if (validateData(submittedDate, submittedConcepts, submittedEntry, submittedMood)) {
-        const newJournalObject = createEntryObject(submittedDate, submittedConcepts, submittedEntry, submittedMood)
-
-        // Check if entry is new or edited
-        if (submittedID === "") {
-
-            // New entry
-            API.saveJournalEntry(newJournalObject)
-                .then(() => API.getJournalEntries())
-                .then((entryArray) => journalList.renderJournalEntries(entryArray))
-                .then(() => {
-                    // Clear form
-                    submittedID = ""
-                    document.getElementById("new-entry").reset()
-                }
-            )
-
-        } else {
-
-            // Edited entry
-            API.editJournalEntry(newJournalObject, submittedID)
-                .then(() => API.getJournalEntries())
-                .then((entryArray) => journalList.renderJournalEntries(entryArray))
-                .then(() => {
-                    // Clear form
-                    submittedID = ""
-                    document.getElementById("new-entry").reset()  
-                }
-            )
-        }
-
-        
-    }
+// New Entry button
+document.querySelector("#newEntryButton").addEventListener("click", clickEvent => {
+    showEntryForm()
 })
 
 
@@ -82,7 +43,8 @@ document.querySelector(".entryLog").addEventListener("click", event => {
 
     if (event.target.id.startsWith("edit--")) {
         const entryToEdit = event.target.id.split("--")[1]
-
+        
+        showEntryForm()
         editFormFields(entryToEdit)
     }
 })
