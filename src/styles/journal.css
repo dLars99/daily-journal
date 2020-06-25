@@ -131,6 +131,24 @@ label {
     margin: 1.1rem 1rem;
 }
 
-.filterMood {
-    flex-flow: row wrap;
+.search__form {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    align-content: space-between;
+    width: 100%;
+}
+
+.search__fieldset {
+    /* display: inline-flex; */
+    flex-flow: row-reverse;
+    width: 40%;
+}
+
+.search__container {
+    width: 100%;
+    display: flex;
+}
+
+.moodButtons {
+    width: 50%;
 }
