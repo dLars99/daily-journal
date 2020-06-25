@@ -5,7 +5,7 @@
 
 import API from "./data.js"
 import journalList from "./entryList.js"
-import filterEntriesByMood from "./moodFilter.js"
+import search from "./search.js"
 import editFormFields from "./editEntry.js"
 import showEntryForm from "./form.js"
 
@@ -24,11 +24,21 @@ filterButtonCollection.forEach(button => {
     button.addEventListener("click", event => {
         const selectedMood = event.target.id
         API.getJournalEntries()
-            .then((allEntries) => filterEntriesByMood(selectedMood, allEntries))
+            .then((allEntries) => search.filterEntriesByMood(selectedMood, allEntries))
             .then((filteredArray) => journalList.renderJournalEntries(filteredArray)
         )
 
     })
+})
+
+// Look for "enter" on Search bar and find matching entries
+document.getElementById("searchBar").addEventListener("keypress", keyEvent => {
+    if (key.charCode === 13) {
+        const searchTerm = keyEvent.target.value
+        API.getJournalEntries()
+            .then((allEntries) => search.keywordSearch(searchTerm, allEntries))
+            .then((filteredArray) => journalList.renderJournalEntries(filteredArray))
+    }
 })
 
 // Listen to buttons on individual entries and take appropriate action
