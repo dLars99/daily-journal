@@ -33,11 +33,12 @@ filterButtonCollection.forEach(button => {
 
 // Look for "enter" on Search bar and find matching entries
 document.getElementById("searchBar").addEventListener("keypress", keyEvent => {
-    if (key.charCode === 13) {
+    if (keyEvent.charCode === 13) {
         const searchTerm = keyEvent.target.value
         API.getJournalEntries()
             .then((allEntries) => search.keywordSearch(searchTerm, allEntries))
-            .then((filteredArray) => journalList.renderJournalEntries(filteredArray))
+            .then((filteredArray) => journalList.renderJournalEntries(filteredArray)
+        )
     }
 })
 

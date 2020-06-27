@@ -16,9 +16,11 @@ const search = {
 
     keywordSearch (keyword, entries) {
         const filteredArray = entries.filter(entry => {
-            for (entry of entries) {
-                return Object.values(entry).includes(keyword)
-            }
+                for (const value of Object.values(entry)) {
+                    if (value.toString().includes(keyword)) {
+                        return entry
+                    }
+                }
         })
 
         return filteredArray

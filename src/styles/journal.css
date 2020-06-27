@@ -134,8 +134,7 @@ label {
 .search__form {
     display: flex;
     flex-flow: row wrap;
-    align-content: space-between;
-    width: 100%;
+    align-content: space-evenly;
 }
 
 .search__fieldset {
@@ -151,4 +150,5 @@ label {
 
 .moodButtons {
     width: 50%;
+    color: cor
 }
