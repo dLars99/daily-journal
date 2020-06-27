@@ -12,34 +12,48 @@
     </header>
     
     <main>
-        <section class="container">
 
-            <form class="new-entry">
-                <fieldset class="filterMood">
-                    <legend class="legend__title">Filter Journal Entries by Mood</legend>
-                    <label for="happy" class="moodButtons">Happy</label>
-                    <input type="radio" name="filterMood" id="Happy">
-                    <label for="sad" class="moodButtons">Sad</label>
-                    <input type="radio" name="filterMood" id="Sad">
-                    <label for="tired" class="moodButtons">Tired</label>
-                    <input type="radio" name="filterMood" id="Tired">
-                    <label for="Celebratory" class="moodButtons">celebratory</label>
-                    <input type="radio" name="filterMood" id="Celebratory">
-                    <label for="confused" class="moodButtons">Confused</label>
-                    <input type="radio" name="filterMood" id="Confused">
-                    <label for="learned" class="moodButtons">Learned</label>
-                    <input type="radio" name="filterMood" id="Learned">
-                    <label for="burn" class="moodButtons">Burn It!</label>
-                    <input type="radio" name="filterMood" id="Burn">
-                </fieldset>
-            </form>
+        <!-- Log search and filter fields -->
+        <section class="search__container">
 
-            <button class="button" id="newEntryButton">New Entry</button>
-            <section class="formGoesHere">
-                <!-- New entry form will appear here -->
-            </section>
+            <div class = "search__fieldset">
+            <fieldset class = "filterMood">
+                <legend class="legend__title">Filter Journal Entries by Mood</legend>
+                <div class="search__form">
+                <span><label for="Happy" class="moodButtons">Happy</label>
+                <input type="radio" name="filterMood" id="Happy"></span>
+                <span><label for="Sad" class="moodButtons">Sad</label>
+                <input type="radio" name="filterMood" id="Sad"></span>
+                <span><label for="Tired" class="moodButtons">Tired</label>
+                <input type="radio" name="filterMood" id="Tired"></span>
+                <span><label for="Celebratory" class="moodButtons">Celebratory</label>
+                <input type="radio" name="filterMood" id="Celebratory"></span>
+                <span><label for="Confused" class="moodButtons">Confused</label>
+                <input type="radio" name="filterMood" id="Confused"></span>
+                <span><label for="Learned" class="moodButtons">Learned</label>
+                <input type="radio" name="filterMood" id="Learned"></span>
+                <span><label for="Burn" class="moodButtons">Burn It!</label>
+                <input type="radio" name="filterMood" id="Burn"></span>
+                <span><label for = "ShowAll" class="moodButtons">Show All Entries</label>
+                <input type="radio" name="filterMood" id="ShowAll"></span>
+                </div>
+            </fieldset>
+            </div>
 
+            <div class="search__fieldset">
+            <fieldset class="search__content">
+                <label for="searchBar">Search</label>
+                <input type="text" name="searchBar" id="searchBar" class="searchBar">
+            </fieldset>
+            </div>
+            
         </section>
+
+        <button class="button" id="newEntryButton">New Entry</button>
+        <section class="formGoesHere container">
+            <!-- New entry form will appear here -->
+        </section>
+
         <article class="entryLog">
             <!-- Entries populated from database -->
         </article>
