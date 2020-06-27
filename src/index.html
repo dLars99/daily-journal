@@ -12,8 +12,12 @@
     </header>
     
     <main>
-        <!-- <form class="search__container"> -->
-            <fieldset class="search__fieldset filterMood">
+
+        <!-- Log search and filter fields -->
+        <section class="search__container">
+
+            <div class = "search__fieldset">
+            <fieldset class = "filterMood">
                 <legend class="legend__title">Filter Journal Entries by Mood</legend>
                 <div class="search__form">
                 <span><label for="Happy" class="moodButtons">Happy</label>
@@ -34,11 +38,16 @@
                 <input type="radio" name="filterMood" id="ShowAll"></span>
                 </div>
             </fieldset>
-            <fieldset class="search__fieldset">
+            </div>
+
+            <div class="search__fieldset">
+            <fieldset class="search__content">
                 <label for="searchBar">Search</label>
-                <input type="text" name="searchBar" id="searchBar">
+                <input type="text" name="searchBar" id="searchBar" class="searchBar">
             </fieldset>
-        <!-- </form> -->
+            </div>
+            
+        </section>
 
         <button class="button" id="newEntryButton">New Entry</button>
         <section class="formGoesHere container">
