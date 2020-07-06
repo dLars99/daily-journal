@@ -2,13 +2,13 @@
 
 const search = {
     filterEntriesByMood (mood, entries) {
-        if (mood === "ShowAll") {
+        if (mood === "8") {
             // Return everything if "Show All Entries" is selected
             return entries
         } else {
             // Return only the entries with the selected mood
             const filteredArray = entries.filter(entry => {
-                return entry.mood.includes(mood)
+                return entry.mood.id === parseInt(mood)
             })
             return filteredArray
         }

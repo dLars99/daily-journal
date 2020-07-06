@@ -30,13 +30,7 @@ const showEntryForm = () => {
         <fieldset>
             <label for="journalMood">Today's Mood</label>
             <select name="journalMood" id="journalMood">
-                <option value="Happy &#x1f60A">Happy &#x1f60A</option>
-                <option value="Sad &#x1f625">Sad &#x1f625</option>
-                <option value="Tired &#x1f971">Tired &#x1f971</option>
-                <option value="Celebratory &#x1f973">Celebratory &#x1f973</option>
-                <option value="Confused &#x1f615">Confused &#x1f615</option>"
-                <option value="Learned &#x1f393">Learned &#x1f393</option>
-                <option value="Burn it to the ground! &#x1f525">Burn it to the ground! &#x1f525</option>
+               
             </select>
         </fieldset>
 
@@ -44,6 +38,9 @@ const showEntryForm = () => {
         <button class="button" type="button" id="cancelEntry">Cancel</button>
     </form>` 
 
+    // Populate mood dropdown
+    API.getMoods().then((moodArray) => journalList.renderFormMoods(moodArray)) 
+    
     // Save button
     document.querySelector("#saveButton").addEventListener("click", clickEvent => {
         let submittedID = document.querySelector("#journalID").value

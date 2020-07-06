@@ -5,14 +5,51 @@
       "date": "May 22 2020",
       "concepts": "GitHub one-way street, Flexbox, Linux and Bash",
       "entry": "So far, so good! Stay on target.",
-      "mood": "Happy &#x1f60A"
+      "moodId": 1
     },
     {
       "id": 2,
       "date": "May 29 2020",
       "concepts": "Group coding, JS Linking to HTML, JS Objects",
       "entry": "First group project was a success, though next time I want to spend more time on design before writing any code.",
-      "mood": "Tired &#x1f971"
+      "moodId": 3
+    },
+    {
+      "date": "2020-07-06",
+      "concepts": "Advanced API Calls",
+      "entry": "Today we learned about advanced GET calls using expand, embed, and filter, and linking data relationships using these. If this entry exists, then it works!",
+      "moodId": 6,
+      "id": 3
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Happy &#x1f60A"
+    },
+    {
+      "id": 2,
+      "label": "Sad &#x1f625"
+    },
+    {
+      "id": 3,
+      "label": "Tired &#x1f971"
+    },
+    {
+      "id": 4,
+      "label": "Celebratory &#x1f973"
+    },
+    {
+      "id": 5,
+      "label": "Confused &#x1f615"
+    },
+    {
+      "id": 6,
+      "label": "Learned &#x1f393"
+    },
+    {
+      "id": 7,
+      "label": "Burn it to the ground! &#x1f525"
     }
   ]
 }

@@ -13,6 +13,14 @@ const journalList = {
             const entryHTML = journalHTML.makeJournalEntryComponent(entry)
             document.querySelector(".entryLog").innerHTML += entryHTML
         }
+    },
+
+    renderFormMoods (moods) {
+        document.querySelector("#journalMood").innerHTML = ""
+        for (const mood of moods) {
+            const moodHTML = journalHTML.makeMoodFormComponent(mood)
+            document.querySelector("#journalMood").innerHTML += moodHTML
+        }
     }
 }
 
