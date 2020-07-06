@@ -5,7 +5,7 @@
 
 const API = {
     getJournalEntries() {
-        return fetch("http://localhost:8088/entries")
+        return fetch("http://localhost:8088/entries?_expand=mood")
             .then(response => response.json())
     },
 
@@ -48,6 +48,11 @@ const API = {
         return fetch(`http://localhost:8088/entries/${id}`, {
             method: "DELETE"
         }).then(response => response.json())
+    },
+
+    getMoods() {
+        return fetch("http://localhost:8088/moods")
+            .then(response => response.json())
     }
 }
 
