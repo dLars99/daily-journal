@@ -1,7 +1,6 @@
-import createEntryObject from "./createEntry.js"
-import validateData from "./validation.js"
 import API from "./data.js"
 import journalList from "./entryList.js"
+import pageButtons from "./buttons.js"
 
 // Displays the New Entry form on the DOM, followed by functionality
 // for the form's Save Button
@@ -42,51 +41,11 @@ const showEntryForm = () => {
     API.getMoods().then((moodArray) => journalList.renderFormMoods(moodArray)) 
     
     // Save button
-    document.querySelector("#saveButton").addEventListener("click", clickEvent => {
-        let submittedID = document.querySelector("#journalID").value
-        const submittedDate = document.querySelector("#journalDate").value
-        const submittedConcepts = document.querySelector("#journalConcepts").value
-        const submittedEntry = document.querySelector("#journalEntry").value
-        const submittedMood = document.querySelector("#journalMood").value
-
-        // Validate data. Save to JSON database if validation passes
-        if (validateData(submittedDate, submittedConcepts, submittedEntry, submittedMood)) {
-            const newJournalObject = createEntryObject(submittedDate, submittedConcepts, submittedEntry, submittedMood)
-
-            // Check if entry is new or edited
-            if (submittedID === "") {
-
-                API.saveAndRefresh(newJournalObject)
-                    .then((entryArray) => journalList.renderJournalEntries(entryArray))
-                    .then(() => {
-                        // Clear form
-                        submittedID = ""
-                        document.getElementById("new-entry").reset()
-                        document.querySelector(".formGoesHere").innerHTML = ""
-                    }
-                )
-
-            } else {
-
-                // Edited entry
-                API.editJournalEntry(newJournalObject, submittedID)
-                    .then(() => API.getJournalEntries())
-                    .then((entryArray) => journalList.renderJournalEntries(entryArray))
-                    .then(() => {
-                        // Clear form
-                        submittedID = ""
-                        document.getElementById("new-entry").reset()
-                        document.querySelector(".formGoesHere").innerHTML = ""
-                    }
-                )
-            }
-        }
-    })
+    pageButtons.saveNewEntry()
 
     // Cancel button
-    document.getElementById("cancelEntry").addEventListener("click", clickEvent => {
-        document.querySelector(".formGoesHere").innerHTML = ""
-    })
+    pageButtons.cancelNewEntry()
+    
 }
 
 export default showEntryForm
