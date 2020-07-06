@@ -29,7 +29,7 @@ const API = {
             },
             body: objectToSend
         }).then(() => {
-            return fetch("http://localhost:8088/entries")
+            return fetch("http://localhost:8088/entries?_expand=mood")
             .then(response => response.json())
         })
     },

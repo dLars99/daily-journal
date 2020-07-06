@@ -5,7 +5,7 @@ const createEntryObject = (date, concepts, entry, mood) => {
         date: date,
         concepts: concepts,
         entry: entry,
-        mood: mood
+        moodId: parseInt(mood)
     }
 }
 

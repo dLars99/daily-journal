@@ -17,7 +17,7 @@ const editFormFields = (entryID) => {
             dateField.value = entry.date
             conceptsField.value = entry.concepts
             entryField.value = entry.entry
-            moodField.value = entry.mood
+            moodField.value = entry.moodId
         })
 }
 
